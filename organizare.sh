@@ -16,15 +16,16 @@ then
 	echo "Sunt $nrmp3 fisiere mp3 in folderul Music!"
 	nrArtistiDif=$(cat fisArtistiMelodii | sort -u | wc -l)
 	echo "Sunt $nrArtistiDif artisti diferiti in playlist!"
-	while read -r line #citesc linie cu linie din fisBun
+#	citesc linie cu linie din fisBun
+	while read -r line 
 	do
 		echo $line
 		length=${#line}
 		echo $length
-		mkdir $line #creare director cu numele artistului
+#		creare director cu numele artistului
+		mkdir $line
 		for i in ~/Music/*
 		do
-#			echo $i
 			if [[ $i == */$line* && -f $i ]]
 			then
 				mv $i ~/Music/$line
